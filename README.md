@@ -4,6 +4,6 @@
 
   built w/astro, ts, mdx, tailwind, daisyui
 
-  inspirtation: [nexxel.dev](https://github.com/nexxeln/nexxel.dev)
+  inspiration: [nexxel.dev](https://github.com/nexxeln/nexxel.dev)
 
 </samp>
