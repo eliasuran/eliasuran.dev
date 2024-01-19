@@ -1,9 +1,9 @@
 <samp>
 
-    ## eliasuran.dev
+  ## eliasuran.dev
 
-    built w/astro, ts, mdx, tailwind, daisyui
+  built w/astro, ts, mdx, tailwind, daisyui
 
-    inspirtation: [nexxel.dev](https://github.com/nexxeln/nexxel.dev)
+  inspirtation: [nexxel.dev](https://github.com/nexxeln/nexxel.dev)
 
 </samp>
