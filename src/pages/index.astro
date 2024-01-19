@@ -1,7 +1,24 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Projects from "../components/projects.astro";
+
+import type { Project } from "../lib/projects";
+import { getProjects } from "../lib/projects";
+const projects: Project[] = await getProjects();
 ---
 
 <BaseLayout title="eliasuran.dev">
-  <a href="/blogg" class="btn">Blogg</a>
+  <div class="flex flex-col gap-6">
+    <p>
+      Hei, jeg heter Elias og er en 17 år gammel elev på Elvebakken VGS. Jeg
+      liker å gjøre web-dev, jobbe med interessante og utfordrende problemer og
+      å bruke Vim :)
+    </p>
+
+    <!-- projects -->
+    <h2 class="text-xl">prosjekter</h2>
+    <div class="grid sm:grid-cols-2 grid-cols-1 gap-4">
+      {projects.map((project) => <Projects {project} />)}
+    </div>
+  </div>
 </BaseLayout>

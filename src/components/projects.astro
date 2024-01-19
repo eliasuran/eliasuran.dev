@@ -1,0 +1,25 @@
+---
+import type { Project } from "../lib/projects";
+interface Props {
+  project: Project;
+}
+const {
+  project: { title, desc, repo, url = "" },
+} = Astro.props;
+import LinkIcon from "./LinkIcon.svelte";
+---
+
+<div class="h-36 flex flex-col gap-2 text-start">
+  <div class="w-full">
+    <h3 class="underline">{title}</h3>
+  </div>
+  <p>{desc}</p>
+  <div class="self-end flex gap-2">
+    {
+      url !== "" && (
+        <LinkIcon href={url} icon="mdi:code-block-html" client:load />
+      )
+    }
+    <LinkIcon href={repo} icon="mdi:github" client:load />
+  </div>
+</div>
