@@ -8,7 +8,7 @@ interface Props {
 const { href, name } = Astro.props;
 ---
 
-<a {href}>
+<a aria-label={`Link to ${href}`} {href}>
   <Icon
     {name}
     class="text-3xl text-neutral-400 hover:text-base-content duration-500"

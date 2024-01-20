@@ -1,0 +1,18 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import Posts from "../../components/posts.astro";
+import type { Post } from "../../types/post";
+
+const posts = await getCollection(
+  "posts",
+  ({ data }) => data.published === true,
+);
+---
+
+<BaseLayout
+  title={"eliasuran - blogg"}
+  desc="Mine blogg posts (ikke veldig aktiv)"
+>
+  {posts.map((post: Post) => <Posts data={post.data} slug={post.slug} />)}
+</BaseLayout>
