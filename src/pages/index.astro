@@ -1,17 +1,25 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Projects from "../components/projects.astro";
 
+import Projects from "../components/projects.astro";
 import type { Project } from "../lib/projects";
 import { getProjects } from "../lib/projects";
 const projects: Project[] = await getProjects();
+
+import Posts from "../components/posts.astro";
+import { getCollection } from "astro:content";
+const posts = await getCollection(
+  "posts",
+  ({ data }) => data.published === true,
+);
 ---
 
 <BaseLayout
-  title="eliasuran.dev"
+  title="home - eliasuran.dev"
   desc="Overview page with projects and latest posts"
 >
   <div class="flex flex-col gap-6">
+    <!-- intro -->
     <p class="text-base-content">
       Hei, jeg heter Elias og er en 17 år gammel elev på Elvebakken VGS. Jeg
       liker å gjøre web-dev, jobbe med interessante og utfordrende problemer og
@@ -22,6 +30,12 @@ const projects: Project[] = await getProjects();
     <h2 class="text-xl text-base-content">prosjekter</h2>
     <div class="grid sm:grid-cols-2 grid-cols-1 gap-4">
       {projects.map((project) => <Projects {project} />)}
+    </div>
+
+    <!-- blog -->
+    <h2 class="text-xl text-base-content">blogg</h2>
+    <div class="flex flex-col gap-4">
+      {posts.map((post) => <Posts data={post.data} slug={post.slug} />)}
     </div>
   </div>
 </BaseLayout>

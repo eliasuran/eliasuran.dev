@@ -11,7 +11,7 @@ const posts = await getCollection(
 ---
 
 <BaseLayout
-  title={"eliasuran - blogg"}
+  title="blogg - eliasuran.dev"
   desc="Mine blogg posts (ikke veldig aktiv)"
 >
   {posts.map((post: Post) => <Posts data={post.data} slug={post.slug} />)}
