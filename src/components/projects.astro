@@ -6,20 +6,19 @@ interface Props {
 const {
   project: { title, desc, repo, url = "" },
 } = Astro.props;
-import LinkIcon from "./LinkIcon.svelte";
+import LinkIcon from "./LinkIcon.astro";
 ---
 
-<div class="h-36 flex flex-col gap-2 text-start">
+<div
+  class="h-36 flex flex-col gap-2 text-start text-neutral-400 hover:text-base-content duration-500"
+>
   <div class="w-full">
-    <h3 class="underline">{title}</h3>
+    <h3>{title}</h3>
+    <div class="h-[2px] bg-neutral-400"></div>
   </div>
   <p>{desc}</p>
   <div class="self-end flex gap-2">
-    {
-      url !== "" && (
-        <LinkIcon href={url} icon="mdi:code-block-html" client:load />
-      )
-    }
-    <LinkIcon href={repo} icon="mdi:github" client:load />
+    {url !== "" && <LinkIcon href={url} name="mdi:code-block-html" />}
+    <LinkIcon href={repo} name="mdi:github" />
   </div>
 </div>
