@@ -1,11 +1,13 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
+/* projects */
 import Projects from "../components/projects.astro";
 import type { Project } from "../lib/projects";
 import { getProjects } from "../lib/projects";
 const projects: Project[] = await getProjects();
 
+/* blog posts */
 import Posts from "../components/posts.astro";
 import { getCollection } from "astro:content";
 const posts = await getCollection(

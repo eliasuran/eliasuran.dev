@@ -5,9 +5,6 @@ date: "2023-1-15"
 published: true
 ---
 
-
-# Github License Generator
-
 ## Preview
 
 ![demo](https://github.com/eliasuran/license-gen/assets/118540201/e07991c0-61af-40db-a9e7-fa1708362bdc)

@@ -11,11 +11,14 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.4.1",
+    "@astrojs/svelte": "^5.0.3",
     "@astrojs/tailwind": "^5.1.0",
+    "@iconify-json/akar-icons": "^1.1.23",
     "@iconify-json/mdi": "^1.1.64",
     "astro": "^4.2.1",
     "astro-icon": "^1.0.2",
     "shiki": "^0.14.7",
+    "svelte": "^4.2.9",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.3.3"
   },
