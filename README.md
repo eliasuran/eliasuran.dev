@@ -2,7 +2,7 @@
 
   ## eliasuran.dev
 
-  built w/astro, ts, mdx, tailwind, daisyui
+  built w/astro, ts, svelte, tailwind, daisyui
 
   inspiration: [nexxel.dev](https://github.com/nexxeln/nexxel.dev)
 
