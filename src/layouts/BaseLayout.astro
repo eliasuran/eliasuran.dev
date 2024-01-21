@@ -13,10 +13,28 @@ import Footer from "../components/Footer.astro";
 <html lang="en">
   <head>
     <ViewTransitions />
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.ico" />
     <meta name="description" content={desc} />
     <title>{title}</title>
+
+    <meta name="title" content={title} />
+    <meta name="description" content={desc} />
+
+    <!-- og tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="eliasuran.dev" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={desc} />
+
+    <!-- twitter tags -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={desc} />
   </head>
   <body class="overflow-x-hidden">
     <div class="mx-auto w-1/2 py-14 text-neutral-400">
