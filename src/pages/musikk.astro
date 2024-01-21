@@ -1,10 +1,51 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { getAccessToken, getTopTracks, getTopArtists } from "../lib/music";
+const token = await getAccessToken();
+
+import type { Track } from "../lib/music";
+const tracks: Track[] = await getTopTracks(token);
+
+import type { Artist } from "../lib/music";
+const artists: Artist[] = await getTopArtists(token);
 ---
 
 <BaseLayout
   title="Musikk - eliasuran.dev"
   desc="my favorite artists and tracks"
 >
-  in progress
+  <div class="flex flex-col gap-4 my-8">
+    <h1 class="text-base-content text-3xl">Topp Låter</h1>
+    {
+      tracks.map((track) => (
+        <div class="flex gap-2 h-24">
+          <img
+            src={track.album.images[0].url}
+            alt={`Cover art for ${track.album} by ${track.artists}`}
+            class="h-full aspect-square"
+          />
+          <div class="self-end">
+            <h2 class="text-xl text-base-content">{track.name}</h2>
+            <p>{track.artists.map((artist) => artist.name).join(", ")}</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+  <div class="flex flex-col gap-4 my-8">
+    <h1 class="text-base-content text-3xl">Topp Artister</h1>
+    {
+      artists.map((artist) => (
+        <div class="flex gap-2 h-24">
+          <img
+            src={artist.images[0].url}
+            alt={`Photo of ${artist.name}`}
+            class="h-full aspect-square"
+          />
+          <h2 class="text-xl text-base-content self-end">{artist.name}</h2>
+        </div>
+      ))
+    }
+  </div>
 </BaseLayout>
