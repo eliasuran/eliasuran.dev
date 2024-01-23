@@ -15,7 +15,7 @@ const artists: Artist[] = await getTopArtists(token);
   desc="my favorite artists and tracks"
 >
   <div class="flex flex-col gap-4 my-8">
-    <h1 class="text-base-content text-3xl">Topp Låter</h1>
+    <h1 class="text-base-content text-3xl">Top Tracks</h1>
     {
       tracks.map((track) => (
         <div class="flex gap-2 h-24">
@@ -25,7 +25,12 @@ const artists: Artist[] = await getTopArtists(token);
             class="h-full aspect-square"
           />
           <div class="self-end">
-            <h2 class="text-xl text-base-content">{track.name}</h2>
+            <a
+              href={track.external_urls.spotify}
+              class="text-xl text-base-content"
+            >
+              {track.name}
+            </a>
             <p>{track.artists.map((artist) => artist.name).join(", ")}</p>
           </div>
         </div>
@@ -34,7 +39,7 @@ const artists: Artist[] = await getTopArtists(token);
   </div>
 
   <div class="flex flex-col gap-4 my-8">
-    <h1 class="text-base-content text-3xl">Topp Artister</h1>
+    <h1 class="text-base-content text-3xl">Top Artists</h1>
     {
       artists.map((artist) => (
         <div class="flex gap-2 h-24">
@@ -43,7 +48,12 @@ const artists: Artist[] = await getTopArtists(token);
             alt={`Photo of ${artist.name}`}
             class="h-full aspect-square"
           />
-          <h2 class="text-xl text-base-content self-end">{artist.name}</h2>
+          <a
+            href={artist.external_urls.spotify}
+            class="text-xl text-base-content self-end"
+          >
+            {artist.name}
+          </a>
         </div>
       ))
     }

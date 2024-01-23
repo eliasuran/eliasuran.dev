@@ -35,6 +35,9 @@ export interface Track {
       },
     ];
   };
+  external_urls: {
+    spotify: string;
+  };
 }
 
 export const getTopTracks = async (token: string) => {
@@ -57,6 +60,7 @@ export const getTopTracks = async (token: string) => {
         name: item.album.name,
         images: [{ url: item.album.images[0].url }],
       },
+      external_urls: { spotify: item.external_urls.spotify },
     };
   });
 };
@@ -68,6 +72,9 @@ export interface Artist {
     },
   ];
   name: string;
+  external_urls: {
+    spotify: string;
+  };
 }
 
 export const getTopArtists = async (token: string) => {
@@ -86,6 +93,7 @@ export const getTopArtists = async (token: string) => {
     return {
       name: item.name,
       images: [{ url: item.images[0].url }],
+      external_urls: { spotify: item.external_urls.spotify },
     };
   });
 };
