@@ -23,19 +23,19 @@ const posts = await getCollection(
   <div class="flex flex-col gap-6">
     <!-- intro -->
     <p class="text-base-content">
-      Hei, jeg heter Elias og er en 17 år gammel elev på Elvebakken VGS. Jeg
-      liker å gjøre web-dev, jobbe med interessante og utfordrende problemer og
-      å bruke Vim :)
+      Hello, my name is Elias and I'm a 17 year old student at Elvebakken VGS. I
+      like to do web-dev, work on interesting and challenging problems and to
+      use Vim :)
     </p>
 
     <!-- projects -->
-    <h2 class="text-xl text-base-content">prosjekter</h2>
+    <h2 class="text-xl text-base-content">projects</h2>
     <div class="grid sm:grid-cols-2 grid-cols-1 gap-4">
       {projects.map((project) => <Projects {project} />)}
     </div>
 
     <!-- blog -->
-    <h2 class="text-xl text-base-content">blogg</h2>
+    <h2 class="text-xl text-base-content">blog</h2>
     <div class="flex flex-col gap-4">
       {posts.map((post) => <Posts data={post.data} slug={post.slug} />)}
     </div>
