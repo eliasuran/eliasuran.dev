@@ -10,4 +10,4 @@
 
 <a class={`${url === href && 'underline'} hover:text-base-content duration-500`} href={href}>
   {href.replace('/', '')}
-  </a>
+</a>
