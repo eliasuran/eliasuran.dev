@@ -14,8 +14,6 @@ const posts = await getCollection(
   "posts",
   ({ data }) => data.published === true,
 );
-
-console.log(posts[0].data.date);
 ---
 
 <BaseLayout

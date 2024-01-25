@@ -2,7 +2,6 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 import Posts from "../../components/posts.astro";
-import type { Post } from "../../types/post";
 
 const posts = await getCollection(
   "posts",

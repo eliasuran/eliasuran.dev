@@ -1,12 +1,12 @@
 ---
 const hoverEffect = "text-neutral-400 hover:text-base-content duration-500";
-import NavItem from "./NavItem.astro";
+import NavItem from "./NavItem.svelte";
 ---
 
 <header class="flex justify-between transition-transform">
   <a href="/" class={`${hoverEffect} text-lg`}>eliasuran.dev</a>
   <div class="flex gap-4">
-    <NavItem href="/blog" />
-    <NavItem href="/music" />
+    <NavItem href="/blog" client:visible />
+    <NavItem href="/music" client:visible />
   </div>
 </header>
