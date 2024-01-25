@@ -14,5 +14,10 @@ const posts = await getCollection(
   title="Blogg - eliasuran.dev"
   desc="Mine blogg posts (ikke veldig aktiv)"
 >
-  {posts.map((post: Post) => <Posts data={post.data} slug={post.slug} />)}
+  {
+    posts
+      .slice()
+      .sort((a, b) => new Date(b.data.date) - new Date(a.data.date))
+      .map((post) => <Posts data={post.data} slug={post.slug} />)
+  }
 </BaseLayout>
