@@ -17,7 +17,10 @@ const posts = await getCollection(
   {
     posts
       .slice()
-      .sort((a, b) => new Date(b.data.date) - new Date(a.data.date))
+      .sort(
+        (a, b) =>
+          new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
+      )
       .map((post) => <Posts data={post.data} slug={post.slug} />)
   }
 </BaseLayout>
