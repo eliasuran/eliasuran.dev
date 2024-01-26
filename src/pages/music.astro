@@ -18,13 +18,13 @@ const artists: Artist[] = await getTopArtists(token);
     <h1 class="text-base-content text-3xl">Top Tracks</h1>
     {
       tracks.map((track) => (
-        <div class="flex gap-2 h-24">
+        <div class="flex sm:flex-row flex-col gap-2">
           <img
             src={track.album.images[0].url}
             alt={`Cover art for ${track.album} by ${track.artists}`}
-            class="h-full aspect-square"
+            class="h-24 w-24 aspect-square"
           />
-          <div class="self-end">
+          <div class="sm:self-end self-start">
             <a
               href={track.external_urls.spotify}
               class="text-xl text-base-content"
@@ -42,15 +42,15 @@ const artists: Artist[] = await getTopArtists(token);
     <h1 class="text-base-content text-3xl">Top Artists</h1>
     {
       artists.map((artist) => (
-        <div class="flex gap-2 h-24">
+        <div class="flex sm:flex-row flex-col gap-2">
           <img
             src={artist.images[0].url}
             alt={`Photo of ${artist.name}`}
-            class="h-full aspect-square"
+            class="flex gap-2 h-24 w-24"
           />
           <a
             href={artist.external_urls.spotify}
-            class="text-xl text-base-content self-end"
+            class="text-xl text-base-content sm:self-end self-start"
           >
             {artist.name}
           </a>
