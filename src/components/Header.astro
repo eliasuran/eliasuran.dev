@@ -4,10 +4,10 @@ import NavItem from "./NavItem.svelte";
 ---
 
 <header
-  class="flex xs:flex-row flex-col justify-between xs:items-start items-center transition-transform"
+  class="flex sm:flex-row flex-col justify-between sm:items-start items-center transition-transform"
 >
   <a href="/" class={`${hoverEffect} text-lg`}>eliasuran.dev</a>
-  <div class="flex gap-4 xs:justify-start justify-between">
+  <div class="flex gap-4 sm:justify-start justify-between">
     <NavItem href="/blog" client:visible />
     <NavItem href="/music" client:visible />
   </div>
