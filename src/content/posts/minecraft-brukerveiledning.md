@@ -14,10 +14,11 @@ published: true
 <h3 align="center">
   
   [Introduksjon](#-introduksjon) |
-  [Lage verden](#%EF%B8%8F-lage-verden) |
   [Tastaturoppsettet](#%EF%B8%8F-tastaturoppsett) |
+  [Lage verden](#-lage-verden) |
   [Skaffe materialer](#-skaffe-materialer) |
-  [Håndverk](#%EF%B8%8F-h%C3%A5ndverk)
+  [Håndverk](#%EF%B8%8F-h%C3%A5ndverk) |
+  [Bygging](%EF%B8%8F-bygging)
   
 </h3>
 
@@ -49,7 +50,7 @@ Du kan åpne inventaret ditt ved å trykke på **E**. Her kan du se alle materia
 
 **Høyre-klikk** samhandler med hva enn du ser på om du er nærme nok.
 
-## ⌨️ Lage verden
+## 🌎 Lage verden
 
 Trykk på Single Player fra menyen som kommer opp når du starter.
 
