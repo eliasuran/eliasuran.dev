@@ -40,7 +40,8 @@ export interface Track {
   };
 }
 
-export const getTopTracks = async (token: string) => {
+export const getTopTracks = async () => {
+  const token = await getAccessToken();
   const res = await fetch(
     "https://api.spotify.com/v1/me/top/tracks?time_range=short_term&limit=10",
     {
@@ -77,7 +78,8 @@ export interface Artist {
   };
 }
 
-export const getTopArtists = async (token: string) => {
+export const getTopArtists = async () => {
+  const token = await getAccessToken();
   const res = await fetch(
     "https://api.spotify.com/v1/me/top/artists?time_range=long_term&limit=10",
     {

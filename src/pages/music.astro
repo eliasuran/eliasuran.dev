@@ -1,13 +1,12 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { getAccessToken, getTopTracks, getTopArtists } from "../lib/music";
-const token = await getAccessToken();
+import { getTopTracks, getTopArtists } from "../lib/music";
 
 import type { Track } from "../lib/music";
-const tracks: Track[] = await getTopTracks(token);
+const tracks: Track[] = await getTopTracks();
 
 import type { Artist } from "../lib/music";
-const artists: Artist[] = await getTopArtists(token);
+const artists: Artist[] = await getTopArtists();
 ---
 
 <BaseLayout
