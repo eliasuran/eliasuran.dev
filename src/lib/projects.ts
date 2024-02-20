@@ -14,9 +14,9 @@ export async function getProjects(): Promise<Project[]> {
       url: "https://e-stats.no",
     },
     {
-      title: "License Generator",
-      repo: "https://github.com/eliasuran/license-generator",
-      desc: "Generate a license for github projects from command line",
+      title: "gomon",
+      repo: "https://github.com/eliasuran/gomon",
+      desc: "Automatically restart go http server when changing the file",
     },
     {
       title: "Workout app",
