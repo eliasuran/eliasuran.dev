@@ -19,10 +19,9 @@ export async function getProjects(): Promise<Project[]> {
       desc: "Automatically restart go http server when changing the file",
     },
     {
-      title: "Workout app",
-      repo: "https://github.com/eliasuran/gym",
-      desc: "Track your workouts and progress in the minimum amount of clicks",
-      url: "https://mpu-gym.vercel.app",
+      title: "License generator",
+      repo: "https://github.com/eliasuran/license-generator",
+      desc: "Generate any license for your github project from the command line",
     },
     {
       title: "mpuVim",
