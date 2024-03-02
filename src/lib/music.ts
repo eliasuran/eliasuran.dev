@@ -20,6 +20,39 @@ export const getAccessToken = async () => {
   return data.access_token;
 };
 
+export interface CurrentlyPlaying {
+  is_playing: boolean;
+  data: {
+    image: string;
+    artists: { name: string }[];
+    href: string;
+    name: string;
+  };
+}
+
+export const getCurrentlyPlaying = async (token: string) => {
+  const res = await fetch(
+    "https://api.spotify.com/v1/me/player/currently-playing",
+    {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    },
+  );
+
+  const data = await res.json();
+  return {
+    is_playing: data.is_playing,
+    data: {
+      image: data.item.album.images[0].url,
+      artists: data.item.artists,
+      href: data.item.href,
+      name: data.item.name,
+    },
+  };
+};
+
 export interface Track {
   artists: [
     {
@@ -40,8 +73,7 @@ export interface Track {
   };
 }
 
-export const getTopTracks = async () => {
-  const token = await getAccessToken();
+export const getTopTracks = async (token: string) => {
   const res = await fetch(
     "https://api.spotify.com/v1/me/top/tracks?time_range=short_term&limit=10",
     {
@@ -78,8 +110,7 @@ export interface Artist {
   };
 }
 
-export const getTopArtists = async () => {
-  const token = await getAccessToken();
+export const getTopArtists = async (token: string) => {
   const res = await fetch(
     "https://api.spotify.com/v1/me/top/artists?time_range=long_term&limit=10",
     {
@@ -101,13 +132,15 @@ export const getTopArtists = async () => {
 };
 
 /* smerten jeg måtte gå gjennom for å få refresh tokenenen min*/
-/* 
 export const getRefreshToken = async () => {
-  const clientId = "";
-  const clientSecret = "";
+  const clientId = import.meta.env.CLIENT_ID;
+  const clientSecret = import.meta.env.CLIENT_SECRET;
   const auth = btoa(`${clientId}:${clientSecret}`);
-  const code =
-    "";
+
+  const getAuthCode = `https://accounts.spotify.com/authorize?response_type=code&client_id=${clientId}&scope=user-top-read user-read-currently-playing&redirect_uri=http://localhost:4321/music`;
+  console.log(getAuthCode);
+
+  const code = "secret";
 
   const res = await fetch("https://accounts.spotify.com/api/token", {
     method: "POST",
@@ -115,10 +148,9 @@ export const getRefreshToken = async () => {
       "Content-Type": "application/x-www-form-urlencoded",
       Authorization: `Basic ${auth}`,
     },
-    body: `grant_type=authorization_code&code=${code}&redirect_uri=http://localhost:4321/musikk`,
+    body: `grant_type=authorization_code&code=${code}&redirect_uri=http://localhost:4321/music`,
   });
 
   const data = await res.json();
   console.log(data);
 };
-*/

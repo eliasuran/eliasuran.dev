@@ -1,12 +1,22 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { getTopTracks, getTopArtists } from "../lib/music";
+import {
+  getTopTracks,
+  getTopArtists,
+  getAccessToken,
+  getCurrentlyPlaying,
+} from "../lib/music";
 
-import type { Track } from "../lib/music";
-const tracks: Track[] = await getTopTracks();
+import type { CurrentlyPlaying, Track, Artist } from "../lib/music";
 
-import type { Artist } from "../lib/music";
-const artists: Artist[] = await getTopArtists();
+const token = await getAccessToken();
+
+const currentlyPlaying: CurrentlyPlaying = await getCurrentlyPlaying(token);
+console.log(currentlyPlaying);
+
+const tracks: Track[] = await getTopTracks(token);
+
+const artists: Artist[] = await getTopArtists(token);
 ---
 
 <BaseLayout
@@ -14,6 +24,20 @@ const artists: Artist[] = await getTopArtists();
   desc="my favorite artists and tracks"
 >
   <div class="flex flex-col gap-4 my-8">
+    {
+      currentlyPlaying.is_playing ? (
+        <>
+          <h1 class="text-base-content text-3xl">Currently Playing</h1>
+          <div class="h-32 w-12 bg-base-200 shadow-md shadow-base-200" />
+          <h1>Listening to {currentlyPlaying.data.name}</h1>
+        </>
+      ) : (
+        <h1 class="text-base-content text-3xl">
+          Currently Not Listening to Music
+        </h1>
+      )
+    }
+
     <h1 class="text-base-content text-3xl">Top Tracks</h1>
     {
       tracks.map((track) => (
