@@ -42,6 +42,11 @@ export const getCurrentlyPlaying = async (token: string) => {
   );
 
   const data = await res.json();
+
+  if (!data) {
+    return null;
+  }
+
   return {
     is_playing: data.is_playing,
     data: {

@@ -27,7 +27,7 @@ const artists: Artist[] = await getTopArtists(token);
 >
   <div class="flex flex-col gap-4 my-8">
     {
-      currentlyPlaying.is_playing && (
+      currentlyPlaying && currentlyPlaying.is_playing && (
         <>
           <a
             href={currentlyPlaying.data.href}
