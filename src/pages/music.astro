@@ -1,4 +1,6 @@
 ---
+export const prerender = false;
+
 import BaseLayout from "../layouts/BaseLayout.astro";
 import {
   getTopTracks,
@@ -21,7 +23,7 @@ const artists: Artist[] = await getTopArtists(token);
 
 <BaseLayout
   title="Musikk - eliasuran.dev"
-  desc="my favorite artists and tracks"
+  desc="what i'm currently listening to and my favorite artists and tracks"
 >
   <div class="flex flex-col gap-4 my-8">
     {
