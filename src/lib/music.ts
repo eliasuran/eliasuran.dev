@@ -47,7 +47,7 @@ export const getCurrentlyPlaying = async (token: string) => {
     data: {
       image: data.item.album.images[0].url,
       artists: data.item.artists,
-      href: data.item.href,
+      href: data.item.uri,
       name: data.item.name,
     },
   };

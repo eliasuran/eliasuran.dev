@@ -22,21 +22,40 @@ const artists: Artist[] = await getTopArtists(token);
 ---
 
 <BaseLayout
-  title="Musikk - eliasuran.dev"
+  title="music - eliasuran.dev"
   desc="what i'm currently listening to and my favorite artists and tracks"
 >
   <div class="flex flex-col gap-4 my-8">
     {
-      currentlyPlaying.is_playing ? (
+      currentlyPlaying.is_playing && (
         <>
-          <h1 class="text-base-content text-3xl">Currently Playing</h1>
-          <div class="h-32 w-12 bg-base-200 shadow-md shadow-base-200" />
-          <h1>Listening to {currentlyPlaying.data.name}</h1>
+          <a
+            href={currentlyPlaying.data.href}
+            class="relative sm:h-32 sm:w-96 w-52 h-96 rounded-md bg-base-200 shadow-md shadow-base-200 p-2 flex sm:flex-row flex-col gap-2"
+          >
+            <img
+              src={currentlyPlaying.data.image}
+              alt={`cover art for ${currentlyPlaying.data.image}`}
+              class="aspect-square sm:w-32 w-full"
+            />
+            <div>
+              <h3>Currently listening to: </h3>
+              <h2 class="line-clamp-2 text-base-content text-xl">
+                {currentlyPlaying.data.name}
+              </h2>
+              <p class="line-clamp-2">
+                {currentlyPlaying.data.artists
+                  .map((artist) => artist.name)
+                  .join(", ")}
+              </p>
+              <img
+                class="h-8 absolute right-2 bottom-2"
+                src="https://cdn.7tv.app/emote/61d5b43904bac68e77cdf8db/4x.webp"
+                alt="a rat jamming out"
+              />
+            </div>
+          </a>
         </>
-      ) : (
-        <h1 class="text-base-content text-3xl">
-          Currently Not Listening to Music
-        </h1>
       )
     }
 
@@ -47,7 +66,7 @@ const artists: Artist[] = await getTopArtists(token);
           <img
             src={track.album.images[0].url}
             alt={`Cover art for ${track.album} by ${track.artists}`}
-            class="h-24 w-24 aspect-square"
+            class="h-24 w-24"
           />
           <div class="sm:self-end self-start">
             <a
