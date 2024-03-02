@@ -21,13 +21,10 @@ export const getAccessToken = async () => {
 };
 
 export interface CurrentlyPlaying {
-  is_playing: boolean;
-  data: {
-    image: string;
-    artists: { name: string }[];
-    href: string;
-    name: string;
-  };
+  image: string;
+  artists: { name: string }[];
+  href: string;
+  name: string;
 }
 
 export const getCurrentlyPlaying = async (token: string) => {
@@ -41,20 +38,21 @@ export const getCurrentlyPlaying = async (token: string) => {
     },
   );
 
+  if (res.status !== 200) {
+    return null;
+  }
+
   const data = await res.json();
 
-  if (!data) {
+  if (!data.is_playing) {
     return null;
   }
 
   return {
-    is_playing: data.is_playing,
-    data: {
-      image: data.item.album.images[0].url,
-      artists: data.item.artists,
-      href: data.item.uri,
-      name: data.item.name,
-    },
+    image: data.item.album.images[0].url,
+    artists: data.item.artists,
+    href: data.item.uri,
+    name: data.item.name,
   };
 };
 

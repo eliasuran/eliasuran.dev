@@ -13,8 +13,8 @@ import type { CurrentlyPlaying, Track, Artist } from "../lib/music";
 
 const token = await getAccessToken();
 
-const currentlyPlaying: CurrentlyPlaying = await getCurrentlyPlaying(token);
-console.log(currentlyPlaying);
+const currentlyPlaying: CurrentlyPlaying | null =
+  await getCurrentlyPlaying(token);
 
 const tracks: Track[] = await getTopTracks(token);
 
@@ -27,24 +27,24 @@ const artists: Artist[] = await getTopArtists(token);
 >
   <div class="flex flex-col gap-4 my-8">
     {
-      currentlyPlaying && currentlyPlaying.is_playing && (
+      currentlyPlaying && (
         <>
           <a
-            href={currentlyPlaying.data.href}
+            href={currentlyPlaying.href}
             class="relative sm:h-32 sm:w-96 w-52 h-96 rounded-md bg-base-200 shadow-md shadow-base-200 p-2 flex sm:flex-row flex-col gap-2"
           >
             <img
-              src={currentlyPlaying.data.image}
-              alt={`cover art for ${currentlyPlaying.data.image}`}
+              src={currentlyPlaying.image}
+              alt={`cover art for ${currentlyPlaying.image}`}
               class="aspect-square sm:w-32 w-full"
             />
             <div>
               <h3>Currently listening to: </h3>
               <h2 class="line-clamp-2 text-base-content text-xl">
-                {currentlyPlaying.data.name}
+                {currentlyPlaying.name}
               </h2>
               <p class="line-clamp-2">
-                {currentlyPlaying.data.artists
+                {currentlyPlaying.artists
                   .map((artist) => artist.name)
                   .join(", ")}
               </p>
