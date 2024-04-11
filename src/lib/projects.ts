@@ -19,14 +19,24 @@ export async function getProjects(): Promise<Project[]> {
       desc: "Automatically restart go http server when changing the file",
     },
     {
-      title: "License generator",
-      repo: "https://github.com/eliasuran/license-generator",
-      desc: "Generate any license for your github project from the command line",
+      title: "ufc-api",
+      repo: "https://github.com/eliasuran/ufc-api",
+      desc: "Web scraper and api for ufc.com",
     },
     {
       title: "mpuVim",
       repo: "https://github.com/eliasuran/mpuVim",
       desc: "Personal Neovim configuration built with lazy package manager",
+    },
+    {
+      title: "konfidensurl",
+      repo: "https://github.com/Elvinos33/konfidensurl",
+      desc: "URL shortener for Konfidens",
+    },
+    {
+      title: "terminal-spotify",
+      repo: "https://github.com/eliasuran/terminal-spotify",
+      desc: "Control spotify through a with a cli written in rust",
     },
   ];
 }
