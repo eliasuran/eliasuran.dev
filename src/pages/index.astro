@@ -6,20 +6,9 @@ import Projects from "../components/projects.astro";
 import type { Project } from "../lib/projects";
 import { getProjects } from "../lib/projects";
 const projects: Project[] = await getProjects();
-
-/* blog posts */
-import Posts from "../components/posts.astro";
-import { getCollection } from "astro:content";
-const posts = await getCollection(
-  "posts",
-  ({ data }) => data.published === true,
-);
 ---
 
-<BaseLayout
-  title="home - eliasuran.dev"
-  desc="overview page with projects and latest posts"
->
+<BaseLayout title="home - eliasuran.dev" desc="overview page with projects">
   <div class="flex flex-col gap-6">
     <!-- intro -->
     <p class="text-base-content">
@@ -34,18 +23,6 @@ const posts = await getCollection(
       {projects.map((project) => <Projects {project} />)}
     </div>
 
-    <!-- blog -->
-    <h2 class="text-xl text-base-content">blog</h2>
-    <div class="flex flex-col gap-4">
-      {
-        posts
-          .slice()
-          .sort(
-            (a, b) =>
-              new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
-          )
-          .map((post) => <Posts data={post.data} slug={post.slug} />)
-      }
-    </div>
+    <!-- blog (removed intil videre) -->
   </div>
 </BaseLayout>
