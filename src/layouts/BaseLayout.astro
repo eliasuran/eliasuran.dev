@@ -6,8 +6,7 @@ interface Props {
   desc: string;
 }
 const { title, desc } = Astro.props;
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro"
 ---
 
 <html lang="en">
@@ -36,13 +35,8 @@ import Footer from "../components/Footer.astro";
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={desc} />
   </head>
-  <body class="overflow-x-hidden">
-    <div class="mx-auto sm:w-1/2 w-2/3 py-14 text-neutral-400">
-      <Header />
-      <div class="mt-12">
-        <slot />
-      </div>
-      <Footer />
-    </div></body
-  >
+  <body class="overflow-hidden fixed inset-0 bg-bg h-screen text-text font-semibold">
+    <Header />
+    <slot />
+  </body>
 </html>

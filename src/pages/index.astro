@@ -1,28 +1,42 @@
 ---
+import { Icon } from "astro-icon/components";
 import BaseLayout from "../layouts/BaseLayout.astro";
-
-/* projects */
-import Projects from "../components/projects.astro";
-import type { Project } from "../lib/projects";
-import { getProjects } from "../lib/projects";
-const projects: Project[] = getProjects();
+import { text } from "../lib/styles"
 ---
 
-<BaseLayout title="home - eliasuran.dev" desc="overview page with projects">
-  <div class="flex flex-col gap-6">
-    <!-- intro -->
-    <p class="text-base-content">
-      Hi, my name is Elias and I'm an 18 year old apprentice at Comono AS with
-      a passion for programming. I like to build a lot of random stuff, work on
-      interesting and challenging problems and to use Vim :)
-    </p>
-
-    <!-- projects -->
-    <h2 class="text-xl text-base-content">projects</h2>
-    <div class="grid sm:grid-cols-2 grid-cols-1 gap-4">
-      {projects.map((project) => <Projects {project} />)}
+<BaseLayout title="Elias Uran" desc="Hello! I'm Elias, an 18 year old IT consultant who loves building things.">
+  <div class="w-full h-full flex flex-col gap-2 items-center justify-center">
+    <div>
+      <h1 class="text-5xl font-semibold text-center">Hello! I'm Elias 👋</h1>
+      <div class="flex justify-between">
+        <div class="flex">
+          {[
+            { name: "mdi:github", href: "https://github.com/eliasuran" },
+            { name: "mdi:linkedin", href: "https://www.linkedin.com/in/elias-uran-400590262/" }
+          ].map((icon) => (
+            <a target="_blank" aria-label={`Link to ${icon.href}`} href={icon.href}>
+              <Icon
+                name={icon.name}
+                class={`text-5xl text-neutral-400 ${text.default}`}
+              />
+            </a>
+          ))}
+        </div>
+        <div>
+          {[
+            { text: "Projects", href: "/projects" },
+            { text: "About me", href: "/about-me" }
+          ].map((item) => (
+            <a 
+              class={`flex items-center w-24 justify-between group hover:underline ${text.default}`} 
+              href={item.href}
+            >
+              {item.text}
+              <Icon class="group-hover:animate-bounceToRight" name="mdi:arrow-right" />
+            </a>
+          ))}
+        </div>
+      </div>
     </div>
-
-    <!-- blog (removed intil videre) -->
   </div>
 </BaseLayout>

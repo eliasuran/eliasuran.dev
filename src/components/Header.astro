@@ -1,13 +1,9 @@
 ---
-const hoverEffect = "text-neutral-400 hover:text-base-content duration-500";
-import NavItem from "./NavItem.svelte";
+import { text } from "../lib/styles"
 ---
 
 <header
-  class="flex sm:flex-row flex-col justify-between sm:items-start items-center transition-transform"
+  class="transition-transform p-20 fixed"
 >
-  <a href="/" class={`${hoverEffect} text-lg`}>eliasuran.dev</a>
-  <div class="flex gap-4 sm:justify-start justify-between">
-    <NavItem href="/music" client:visible />
-  </div>
+<a href="/" class={text.default}>eliasuran.dev</a>
 </header>
