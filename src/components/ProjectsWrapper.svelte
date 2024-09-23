@@ -9,11 +9,6 @@
   function setSelectedProject(index: number) {
     selectedProject === index ? selectedProject = null : selectedProject = index
   }
-
-  function getTechnologyIcon(technology: string): string {
-    const tech = technologies.find(t => t.name === technology);
-    return tech ? tech.icon : "";
-  }
 </script>
 
 <div class="flex flex-col gap-2">
@@ -32,7 +27,7 @@
             <div class="flex justify-between">
               <div class="flex gap-2">
                 {#each project.technologies as technology}
-                  <Icon class="text-lg" icon={getTechnologyIcon(technology)} />
+                  <Icon class="text-lg" icon={technologies[technology]} />
                 {/each}
               </div>
               <a target="_blank" aria-label={`Link to ${project.title} github repo`} href={project.repo}>

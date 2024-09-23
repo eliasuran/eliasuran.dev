@@ -5,7 +5,7 @@ export interface Project {
   repo: string;
   desc: string;
   url?: string;
-  technologies: Technologies;
+  technologies: Technologies[];
 }
 
 export const projects: Project[] =
