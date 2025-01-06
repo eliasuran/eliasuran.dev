@@ -1,9 +1,48 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import AboutMeSection from "../components/AboutMeSection.astro";
+import Artist from "../components/Artist.astro";
+import { text } from '../lib/styles';
 ---
 
 <BaseLayout title="About me - Elias Uran" desc="Hello! I'm Elias, an 18 year old IT consultant who loves building things.">
-  <div class="w-full h-full flex flex-col gap-4 items-center text-xl text-center px-10 mt-[46vh] font-normal">
-    <h1 class="font-semibold">I'm an 18 year old IT consultant who loves building things</h1>
+  <div class="snap-y snap-mandatory h-screen overflow-y-scroll overflow-x-hidden">
+
+    <AboutMeSection>
+      <h1 class="font-semibold">I'm an 18 year old IT consultant who loves building things</h1>
+    </AboutMeSection>
+
+    <AboutMeSection>
+      <h1 class="font-semibold">I also love music. Here are some of my favorite artists right now</h1>
+      <div class="flex sm:flex-row flex-col gap-12">
+
+        <Artist 
+          name="Westside Gunn" 
+          spotifyLink="https://open.spotify.com/artist/0ABk515kENDyATUdpCKVfW"
+          imageSrc="https://i.scdn.co/image/ab6761610000517410b517960f313575989c44c1" 
+        />
+
+        <Artist 
+          name="Red Velvet" 
+          spotifyLink="https://open.spotify.com/artist/1z4g3DjTBBZKhvAroFlhOM"
+          imageSrc="https://i.scdn.co/image/ab6761610000517402a562ea6b1dc718394010ac" 
+        />
+
+        <Artist 
+          name="Conway the Machine" 
+          spotifyLink="https://open.spotify.com/artist/67gqUXxHedeUGDTxwBzdjS"
+          imageSrc="https://i.scdn.co/image/ab676161000051740fe12046479e30bfb36afdd2" 
+        />
+
+      </div>
+    </AboutMeSection>
+
+    <AboutMeSection>
+      <div>
+        <span class="font-semibold">Contact me at: </span> 
+        <a class={text.default} href="mailto:elias.uran@wemail.no" target="_blank">elias.uran@wemail.no</a>
+      </div>
+    </AboutMeSection>
+
   </div>
 </BaseLayout>
