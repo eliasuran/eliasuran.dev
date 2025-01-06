@@ -3,12 +3,16 @@
   import { text } from "../lib/styles"
   import { projects } from "../lib/projects"
   import { technologies } from "../lib/technologies"
+  import { loadIcons } from "@iconify/svelte"
 
   let selectedProject = null as number | null;
 
   function setSelectedProject(index: number) {
     selectedProject === index ? selectedProject = null : selectedProject = index
   }
+
+  const icons = Object.values(technologies).map((icon) => icon)
+  loadIcons(icons)
 </script>
 
 <div class="flex flex-col gap-2">
@@ -22,7 +26,7 @@
           {project.title}
         </button>
         {#if selectedProject === index}
-          <div class="font-normal transition-all duration-300 animate-slideDown flex flex-col gap-2">
+          <div class="font-normal transition-all duration-300 animate-slideUp flex flex-col gap-2">
             <p>{project.desc}</p>
             <div class="flex justify-between">
               <div class="flex gap-2">
