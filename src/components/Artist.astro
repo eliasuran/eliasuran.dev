@@ -15,6 +15,6 @@ const { name, imageSrc, spotifyLink } = Astro.props;
       <div class="sm:w-40 w-28 aspect-square rounded-full overflow-hidden border-4 border-text">
         <Image src={imageSrc} alt={`Image for artist ${name} on Spotify`} width={200} height={200} />
       </div>
-      <span class={`${text.default} group-hover:text-primary`}>{name}</span>
+      <span class={`${text.default} group-hover:text-primary sm:text-center text-left`}>{name}</span>
   </div>
 </a>
