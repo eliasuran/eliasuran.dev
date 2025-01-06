@@ -10,9 +10,11 @@ interface Props {
 const { name, imageSrc, spotifyLink } = Astro.props;
 ---
 
-<div class="flex flex-col gap-2 items-center">
-  <div class="w-40 aspect-square rounded-full overflow-hidden border-4 border-text">
-    <Image src={imageSrc} alt={`Image for artist ${name} on Spotify`} width={200} height={200} />
+<a href={spotifyLink}>
+  <div class="flex sm:flex-col flex-row gap-2 items-center group">
+      <div class="sm:w-40 w-28 aspect-square rounded-full overflow-hidden border-4 border-text">
+        <Image src={imageSrc} alt={`Image for artist ${name} on Spotify`} width={200} height={200} />
+      </div>
+      <span class={`${text.default} group-hover:text-primary`}>{name}</span>
   </div>
-  <a href={spotifyLink} class={text.default}>{name}</a>
-</div>
+</a>
