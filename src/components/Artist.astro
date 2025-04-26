@@ -4,13 +4,13 @@ import { text } from '../lib/styles';
 
 interface Props {
   name: string;
-  spotifyLink: string;
+  artistId: string;
   imageSrc: string;
 }
-const { name, imageSrc, spotifyLink } = Astro.props;
+const { name, imageSrc, artistId } = Astro.props;
 ---
 
-<a target="_blank" href={spotifyLink}>
+<a target="_blank" href={`https://open.spotify.com/artist/${artistId}`}>
   <div class="flex sm:flex-col flex-row gap-2 items-center group">
       <div class="sm:w-40 w-28 aspect-square rounded-full overflow-hidden border-4 border-text">
         <Image src={imageSrc} alt={`Image for artist ${name} on Spotify`} width={200} height={200} />
