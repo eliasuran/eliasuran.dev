@@ -1,4 +1,4 @@
-export type Technologies = "ts" | "js" | "rust" | "go" | "python" | "lua" | "react" | "svelte" | "astro"
+//
 
 export const technologies = {
   js: "vscode-icons:file-type-js-official",
@@ -9,5 +9,10 @@ export const technologies = {
   lua: "logos:lua",
   react: "logos:react",
   svelte: "logos:svelte-icon",
-  astro: "logos:astro-icon"
+  astro: "logos:astro-icon",
+  aws: "logos:aws",
+  postgres: "logos:postgresql",
+  prisma: "logos:prisma"
 }
+
+export type Technologies = keyof typeof technologies
