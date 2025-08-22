@@ -2,9 +2,10 @@
 import { Icon } from "astro-icon/components";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { text } from "../lib/styles"
+import { config } from "../lib/config";
 ---
 
-<BaseLayout title="Elias Uran" desc="Hello! I'm Elias, an 18 year old IT consultant who loves building things.">
+<BaseLayout title="Elias Uran" desc=`Hello! I'm Elias, an ${config.age} year old IT consultant who loves building things.`>
   <div class="w-full h-full flex flex-col gap-2 items-center justify-center px-10">
     <div>
       <h1 class="text-5xl font-semibold text-center">Hello! I'm Elias 👋</h1>
