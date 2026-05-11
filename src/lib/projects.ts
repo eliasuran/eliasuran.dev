@@ -17,16 +17,14 @@ export const projects: Project[] =
     title: "Prokarimi",
     desc: "Backend developer & DevOps engineer for microbiota testing and results application",
     technologies: ["aws", "postgres", "python"],
-    type: "work",
-    url: "https://prokarimi.no"
+    type: "work"
   },
   {
     id: "langory",
     title: "Langory",
     desc: "Fullstack developer & DevOps engineer for AI story and language learning application",
     technologies: ["ts", "react", "aws", "postgres", "python"],
-    type: "work",
-    url: "https://langory.com"
+    type: "work"
   },
   {
     id: "symetrisk",
