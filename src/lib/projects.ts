@@ -35,6 +35,14 @@ export const projects: Project[] =
     url: "https://symetrisk.com"
   },
   {
+    id: "inschool_google_calendar_integration",
+    title: "InSchool Google Calendar Integration",
+    repo: "https://github.com/eliasuran/inschool_google_calendar_integration",
+    desc: "Authorizing and fetching data from Visma InSchool, and creating timetable events in directly in Google Calendar",
+    technologies: ["python"],
+    type: "personal",
+  },
+  {
     id: "konfidensurl",
     title: "konfidensurl",
     repo: "https://github.com/Elvinos33/konfidensurl",
@@ -48,14 +56,6 @@ export const projects: Project[] =
     repo: "https://github.com/eliasuran/gomon",
     desc: "Automatically restart go http server when changing the file",
     technologies: ["go"],
-    type: "personal",
-  },
-  {
-    id: "ufcapi",
-    title: "ufc-api",
-    repo: "https://github.com/eliasuran/ufc-api",
-    desc: "Web scraper and api for ufc.com. Made as school project at Elvebakken VGS.",
-    technologies: ["go", "svelte", "astro", "ts"],
     type: "personal",
   },
   {
