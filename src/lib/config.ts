@@ -1,4 +1,4 @@
 export const config = {
   age_prefix: "a",
-  age: 19
+  age: 20
 }
